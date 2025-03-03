@@ -15,6 +15,7 @@ option(ENABLE_EXAMPLES "Build examples" ON)
 add_subdirectory(src)
 
 if (ENABLE_TESTS)
+    enable_testing()
     add_subdirectory(tests)
 endif()
 

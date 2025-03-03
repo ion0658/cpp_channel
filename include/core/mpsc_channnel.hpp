@@ -39,10 +39,7 @@ class MpscChannel : public channel::BasicChannel<T> {
 
     std::optional<T> receive() override {
         std::unique_lock<std::mutex> lock(_mutex);
-        _cond.wait(lock, [this] {
-            std::this_thread::yield();
-            return !_queue.empty() || _closed;
-        });
+        _cond.wait(lock, [this] { return !_queue.empty() || _closed; });
         if (_closed || _queue.empty()) {
             return std::nullopt;
         }

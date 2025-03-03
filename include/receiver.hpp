@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/basic_channel.hpp"
+#include "sender.hpp"
 
 #include <memory>
 #include <optional>
@@ -14,6 +15,7 @@ template <typename T>
 struct IReceiver {
     virtual ~IReceiver<T>() {}
     virtual std::optional<T> next() = 0;
+    virtual std::shared_ptr<channel::ISender<T>> subscribe() = 0;
     virtual bool is_closed() = 0;
     virtual void close() = 0;
 };
@@ -39,6 +41,7 @@ class Receiver : public channel::IReceiver<T> {
     /// IReceiver<T> implementation
 
     std::optional<T> next() override { return _channel->receive(); }
+    std::shared_ptr<channel::ISender<T>> subscribe() override { return channel::Sender<T>::create(this->_channel); }
     bool is_closed() override { return _channel->is_closed(); }
     void close() override { _channel->close(); }
 };
