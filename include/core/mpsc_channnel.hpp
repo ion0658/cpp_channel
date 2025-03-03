@@ -1,5 +1,7 @@
 #pragma once
 
+#include "cpp_channel_export.hpp"
+
 #include "core/basic_channel.hpp"
 
 #include <condition_variable>
@@ -62,6 +64,34 @@ class MpscChannel : public channel::BasicChannel<T> {
         std::this_thread::yield();
     }
 };
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<bool>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<uint8_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<uint16_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<uint32_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<uint64_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<int8_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<int16_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<int32_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<int64_t>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<std::string>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<std::wstring>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<std::vector<bool>>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<std::vector<uint8_t>>;
+
+extern template class CPP_CHANNEL_EXPORT channel::MpscChannel<std::vector<int8_t>>;
 
 }  // namespace channel
 

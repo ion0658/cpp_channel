@@ -9,6 +9,7 @@ namespace channel {
 
 template <typename T>
 struct BasicChannel {
+    virtual ~BasicChannel() {};
     virtual bool send(const T value) = 0;
     virtual std::optional<T> receive() = 0;
     virtual bool is_closed() = 0;
