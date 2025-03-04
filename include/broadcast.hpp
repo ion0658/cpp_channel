@@ -1,16 +1,12 @@
 #pragma once
 
-#include "cpp_channel_export.hpp"
-
 #include "core/broadcast_channel.hpp"
 #include "core/mpsc_channnel.hpp"
 #include "receiver.hpp"
 #include "sender.hpp"
 
 #include <memory>
-#include <string>
 #include <utility>
-#include <vector>
 
 #ifndef __BROADCAST_HPP__
 #define __BROADCAST_HPP__
@@ -58,64 +54,6 @@ class Broadcast {
         return {std::move(receiver), sender};
     }
 };
-
-/// explicit instantiation declaration
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<bool>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<uint8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<uint16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<uint32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<uint64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<int8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<int16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<int32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<int64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<std::string>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<std::wstring>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<std::vector<bool>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<std::vector<uint8_t>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Broadcast<std::vector<int8_t>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<bool>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<uint8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<uint16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<uint32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<uint64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<std::string>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<std::wstring>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<std::vector<bool>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<std::vector<uint8_t>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<std::vector<int8_t>>;
 
 }  // namespace channel
 #endif  // __BROADCAST_HPP__

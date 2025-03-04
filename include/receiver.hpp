@@ -1,7 +1,5 @@
 #pragma once
 
-#include "cpp_channel_export.hpp"
-
 #include "core/basic_channel.hpp"
 #include "sender.hpp"
 
@@ -47,36 +45,6 @@ class Receiver : public channel::IReceiver<T> {
     bool is_closed() override { return _channel->is_closed(); }
     void close() override { _channel->close(); }
 };
-
-/// explicit instantiation declaration
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<bool>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<uint8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<uint16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<uint32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<uint64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<int8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<int16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<int32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<int64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<std::string>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<std::wstring>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<std::vector<bool>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<std::vector<uint8_t>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Receiver<std::vector<int8_t>>;
 
 }  // namespace channel
 

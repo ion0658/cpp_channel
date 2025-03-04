@@ -1,12 +1,8 @@
 #pragma once
 
-#include "cpp_channel_export.hpp"
-
 #include "core/basic_channel.hpp"
 
 #include <memory>
-#include <string>
-#include <vector>
 
 #ifndef __SENDER_HPP__
 #define __SENDER_HPP__
@@ -46,36 +42,6 @@ class Sender : public channel::ISender<T> {
     void close() override { _channel->close(); }
     std::shared_ptr<channel::ISender<T>> clone() override { return Sender<T>::create(_channel); }
 };
-
-/// explicit instantiation declaration
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<bool>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<uint8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<uint16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<uint32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<uint64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<int8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<int16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<int32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<int64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<std::string>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<std::wstring>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<std::vector<bool>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<std::vector<uint8_t>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::Sender<std::vector<int8_t>>;
 
 }  // namespace channel
 

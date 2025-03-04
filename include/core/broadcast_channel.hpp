@@ -1,7 +1,5 @@
 #pragma once
 
-#include "cpp_channel_export.hpp"
-
 #include "core/basic_channel.hpp"
 #include "core/mpsc_channnel.hpp"
 
@@ -62,34 +60,6 @@ class BroadcastChannel : public channel::BasicChannel<T> {
         _receivers.erase(receiver);
     }
 };
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<bool>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<uint8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<uint16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<uint32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<uint64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int8_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int16_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int32_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int64_t>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::string>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::wstring>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::vector<bool>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::vector<uint8_t>>;
-
-extern template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::vector<int8_t>>;
 
 }  // namespace channel
 

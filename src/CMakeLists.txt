@@ -5,6 +5,11 @@ if (ENABLE_HEADER_ONLY)
             INTERFACE
                 ${PROJECT_SOURCE_DIR}/include
     )
+    target_definitions(
+        ${PROJECT_NAME}
+            INTERFACE
+                -DCPP_CHANNEL_HEADER_ONLY
+    )
 else()
     if (ENABLE_SHARED)
         add_library(${PROJECT_NAME} SHARED)
@@ -19,8 +24,8 @@ else()
     add_subdirectory(declarations)
     target_compile_options(
         ${PROJECT_NAME} PRIVATE
-            $<$<CXX_COMPILER_ID:MSVC>: /W4>
-            $<$<CXX_COMPILER_ID:GNU>: -Wall -Wextra>
+            $<$<CXX_COMPILER_ID:MSVC>: /W4 /WX /wd4251>
+            $<$<CXX_COMPILER_ID:GNU>: -Wall -Wextra -Werror>
     )
     include(GenerateExportHeader)
     generate_export_header(
@@ -29,7 +34,8 @@ else()
     )
     target_include_directories(
         ${PROJECT_NAME}
-            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+            PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
+    )
 
     install(
         TARGETS
@@ -47,3 +53,4 @@ else()
             DESTINATION include
     )
 endif()
+
