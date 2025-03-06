@@ -24,6 +24,8 @@ template class CPP_CHANNEL_EXPORT channel::Sender<int32_t>;
 
 template class CPP_CHANNEL_EXPORT channel::Sender<int64_t>;
 
+template class CPP_CHANNEL_EXPORT channel::Sender<size_t>;
+
 template class CPP_CHANNEL_EXPORT channel::Sender<std::string>;
 
 template class CPP_CHANNEL_EXPORT channel::Sender<std::wstring>;

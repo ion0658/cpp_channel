@@ -4,7 +4,7 @@
 
 #include "cpp_channel_export.hpp"
 
-#include "core/broadcast_channel.hpp"
+#include "channel/broadcast_channel.hpp"
 
 template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<bool>;
 
@@ -17,6 +17,8 @@ template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int8_t>;
 template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int16_t>;
 template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int32_t>;
 template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<int64_t>;
+
+template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<size_t>;
 
 template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::string>;
 template class CPP_CHANNEL_EXPORT channel::BroadcastChannel<std::wstring>;

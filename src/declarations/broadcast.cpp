@@ -18,6 +18,8 @@ template class CPP_CHANNEL_EXPORT channel::Broadcast<int16_t>;
 template class CPP_CHANNEL_EXPORT channel::Broadcast<int32_t>;
 template class CPP_CHANNEL_EXPORT channel::Broadcast<int64_t>;
 
+template class CPP_CHANNEL_EXPORT channel::Broadcast<size_t>;
+
 template class CPP_CHANNEL_EXPORT channel::Broadcast<std::string>;
 template class CPP_CHANNEL_EXPORT channel::Broadcast<std::wstring>;
 

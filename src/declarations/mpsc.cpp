@@ -18,6 +18,8 @@ template class CPP_CHANNEL_EXPORT channel::Mpsc<int16_t>;
 template class CPP_CHANNEL_EXPORT channel::Mpsc<int32_t>;
 template class CPP_CHANNEL_EXPORT channel::Mpsc<int64_t>;
 
+template class CPP_CHANNEL_EXPORT channel::Mpsc<size_t>;
+
 template class CPP_CHANNEL_EXPORT channel::Mpsc<std::string>;
 template class CPP_CHANNEL_EXPORT channel::Mpsc<std::wstring>;
 

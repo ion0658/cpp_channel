@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/basic_channel.hpp"
-#include "core/mpsc_channnel.hpp"
+#include "channel/basic_channel.hpp"
+#include "channel/mpsc_channnel.hpp"
 
 #include <mutex>
 #include <optional>
@@ -23,6 +23,9 @@ class BroadcastChannel : public channel::BasicChannel<T> {
    public:
     bool send(const T value) override {
         std::unique_lock<std::mutex> lock(_mutex);
+        if (_closed) {
+            return false;
+        }
         for (auto& receiver : _receivers) {
             if (!receiver->send(value)) {
                 return false;
@@ -31,6 +34,8 @@ class BroadcastChannel : public channel::BasicChannel<T> {
         return true;
     }
     std::optional<T> receive() override { return std::nullopt; }
+    std::optional<T> try_receive() override { return std::nullopt; }
+    std::optional<T> peek() override { return std::nullopt; }
 
     bool is_closed() override {
         std::unique_lock<std::mutex> lock(_mutex);

@@ -24,6 +24,8 @@ template class CPP_CHANNEL_EXPORT channel::Receiver<int32_t>;
 
 template class CPP_CHANNEL_EXPORT channel::Receiver<int64_t>;
 
+template class CPP_CHANNEL_EXPORT channel::Receiver<size_t>;
+
 template class CPP_CHANNEL_EXPORT channel::Receiver<std::string>;
 
 template class CPP_CHANNEL_EXPORT channel::Receiver<std::wstring>;
@@ -51,6 +53,8 @@ template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int16_t>;
 template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int32_t>;
 
 template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<int64_t>;
+
+template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<size_t>;
 
 template class CPP_CHANNEL_EXPORT channel::BroadcastReceiver<std::string>;
 

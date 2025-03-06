@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/broadcast_channel.hpp"
-#include "core/mpsc_channnel.hpp"
+#include "channel/broadcast_channel.hpp"
+#include "channel/mpsc_channnel.hpp"
 #include "receiver.hpp"
 #include "sender.hpp"
 
@@ -35,6 +35,8 @@ class BroadcastReceiver : public channel::IReceiver<T> {
     virtual ~BroadcastReceiver() { this->close(); }
 
     std::optional<T> next() override { return _mpsc->receive(); }
+    std::optional<T> try_next() override { return _mpsc->try_receive(); }
+    std::optional<T> peek() override { return _mpsc->peek(); }
     std::unique_ptr<channel::ISender<T>> subscribe() override { return channel::Sender<T>::create(this->_channel); }
     bool is_closed() override { return _mpsc->is_closed(); }
     void close() override {

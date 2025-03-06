@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/basic_channel.hpp"
+#include "channel/basic_channel.hpp"
 
 #include <condition_variable>
 #include <mutex>
@@ -45,6 +45,25 @@ class MpscChannel : public channel::BasicChannel<T> {
         }
         T value = _queue.front();
         _queue.pop();
+        return value;
+    }
+
+    std::optional<T> try_receive() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        if (_queue.empty() || _closed) {
+            return std::nullopt;
+        }
+        T value = _queue.front();
+        _queue.pop();
+        return value;
+    }
+
+    std::optional<T> peek() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        if (_queue.empty() || _closed) {
+            return std::nullopt;
+        }
+        T value = _queue.front();
         return value;
     }
 

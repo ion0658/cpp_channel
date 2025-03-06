@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/basic_channel.hpp"
+#include "channel/basic_channel.hpp"
 
 #include <memory>
 
@@ -11,9 +11,11 @@ namespace channel {
 
 template <typename T>
 struct ISender {
-    virtual ~ISender() {};
+    virtual ~ISender() = default;
+    /// If the channel is closed, this function will return false.
     virtual bool send(const T value) = 0;
     virtual void close() = 0;
+    /// Create a new sender that will send to the same channel.
     virtual std::unique_ptr<channel::ISender<T>> clone() = 0;
 };
 

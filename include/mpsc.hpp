@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/mpsc_channnel.hpp"
+#include "channel/mpsc_channnel.hpp"
 #include "receiver.hpp"
 #include "sender.hpp"
 

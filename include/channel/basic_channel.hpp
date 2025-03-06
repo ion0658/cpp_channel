@@ -12,6 +12,8 @@ struct BasicChannel {
     virtual ~BasicChannel() {};
     virtual bool send(const T value) = 0;
     virtual std::optional<T> receive() = 0;
+    virtual std::optional<T> try_receive() = 0;
+    virtual std::optional<T> peek() = 0;
     virtual bool is_closed() = 0;
     virtual void close() = 0;
 };
